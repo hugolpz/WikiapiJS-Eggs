@@ -18,8 +18,8 @@ var USER = logins.commons.user,
     var listPages = [ 'Sandbox_1', 'Sandbox_2', 'Sandbox_3'];
     // Add template {stub}, replace-remove vandalism if any, add category.
     await wiki.for_each_page(
-        'Commons:Sandbox', 
-        page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/^/g,'Thanos says: ')+`\n[[Category:${USER} test: edit]]`; }, // new content
+        listPages, 
+        d => { return `{{stub}}\n`+d.wikitext.replace(/^/g,'Thanos says: ')+`\n[[Category:${USER} test: edit]]`; }, // new content
            {bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
    );
 /* END CORE ****************************************************** */

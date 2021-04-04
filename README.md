@@ -29,7 +29,7 @@ This project currently provides the following scripts, already working, and read
 - [ ] wiki-delete-many.js
 - [ ] wiki-monitor-recent_changes.js
 - [ ] wiki-monitor-user_creation.js
-- [x] commons-upload-many.js
+- [x] wiki-upload-many.js
 - [ ] wikidata-read.js (page, page's property's value)
 - [ ] wikidata-modify.js
   - [ ] wikidata-modify-lexeme.js
