@@ -13,8 +13,8 @@ Setup:
 git clone {url} ./SeaDragonBot  # Create the bot folder
 cd ./SeaDragonBot               # Move into folder
 npm install                     # Install core dependencies
-cp ./tpl/logins.js logins.js
-cp ./tpl/wiki-action-template.js wiki-NEXT.js
+cp ./tpl/_logins-template.js logins.js
+cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
 ```
 
 
@@ -39,7 +39,9 @@ This project currently provides the following scripts, already working, and read
 **Open and explore [API documentation](https://kanasimi.github.io/wikiapi/).**
 
 ### Init
-1) On your wiki, login or create an account, then gather your username and password in a `login.js` file:
+1) On your wiki, login or create an account. Save your credential. 
+
+2) In `./login.js` file:
 ```javascript
 // login.js : I store your password and should never be git commited ! Add `login.js` to your .gitignore file.
 module.exports = {
