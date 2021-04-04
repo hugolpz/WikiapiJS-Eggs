@@ -21,7 +21,7 @@ var USER = logins.commons.user,
         filter: function filter_row() { ... },
         // get diff
         with_diff: { LCS: true, line: true },
-        namespace: '0|talk',			// <------------------- what is that
+        namespace: '0|talk',	// <-------- Main namespace and its talkpages.
     });
 /* END CORE ****************************************************** */
 /* *************************************************************** */
