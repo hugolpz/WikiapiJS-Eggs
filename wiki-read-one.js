@@ -1,7 +1,8 @@
-// PURPOSE: Script to edit targets using hand-picked targets.
+// PURPOSE: Script reads targets, print wikicode content into text files.
 // Run: $node wiki-upload-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
+const fs = require('fs');
 
 // Login credentials from .login*.js
 var USER = logins.commons.user,
@@ -15,13 +16,8 @@ var USER = logins.commons.user,
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
-    var listPages = [ 'Sandbox_1', 'Sandbox_2', 'Sandbox_3'];
-    // Add template {stub}, replace-remove vandalism if any, add category.
-    await wiki.for_each_page(
-        listPages, 
-        d => { return `{{stub}}\n`+d.wikitext.replace(/^/g,'Thanos says: ')+`\n[[Category:${USER} test: edit]]`; }, // new content
-           {bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
-   );
+    let page_data = await wiki.page('Universe', {});
+    console.log(page_data.wikitext);
 /* END CORE ****************************************************** */
 /* *************************************************************** */
 

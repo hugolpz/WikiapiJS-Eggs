@@ -30,3 +30,5 @@ var USER = logins.commons.user,
 /* *************************************************************** */
 
 })();
+
+// For details, see documentation : https://kanasimi.github.io/wikiapi/
