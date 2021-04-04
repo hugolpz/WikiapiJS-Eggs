@@ -23,16 +23,19 @@ cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
 - [x] wiki-NEXT.js : _your next code._
 
 This project currently provides the following scripts, already working, and ready to hack further :
-- [x] wiki-read.js
+- [x] wiki-read-one.js
+- [x] wiki-read-many.js and save as files.
 - [x] wiki-edit-many.js
 - [x] wiki-move-many.js
+- [ ] wiki-read_parse-many-keep_section.js and save as files.
+- [ ] wiki-read_parse-many-keep_template_data.js and save as files.
 - [ ] wiki-delete-many.js
 - [ ] wiki-monitor-recent_changes.js
 - [ ] wiki-monitor-user_creation.js
 - [x] wiki-upload-many.js
 - [ ] wikidata-read.js (page, page's property's value)
 - [ ] wikidata-modify.js
-  - [ ] wikidata-modify-lexeme.js
+- [ ] wikidata-modify-lexeme.js
 
 ### API documentation
 **Open and explore [API documentation](https://kanasimi.github.io/wikiapi/).**
