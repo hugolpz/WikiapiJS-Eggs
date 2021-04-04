@@ -14,7 +14,7 @@ var USER = logins.commons.user,
     console.log(`Username ${USER} is connected !`);
 
     /*** CORE ACTION(S) HERE : HACK ME ! ************** */
-    /**/   var listPages = [ 'Sandbox_1', 'Sandbox_2', 'Sandbox_3'];
+    /**/   var listPages = [ 'Commons:Sandbox', 'Commons:Sandbox/2', 'Commons:Sandbox/3'];
     /**/   // Add template {stub}, replace-remove vandalism if any, add category.
     /**/   await wiki.for_each_page(
     /**/       listPages, 

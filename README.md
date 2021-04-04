@@ -40,7 +40,7 @@ This project currently provides the following scripts, already working, and read
 ### Init
 1) On your wiki, create or own an account. 
 
-2) In `./login.js`, save the your username, password, api url. Repeat for each mediawiki & account you want to work on.
+2) In `./login.js`, save your username, password, api url. Repeat for each mediawiki & account you want to work with.
 ```javascript
 // login.js : I store your password and should never be git commited ! I should be mentioned in .gitignore .
 module.exports = {
