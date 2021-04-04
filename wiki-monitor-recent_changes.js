@@ -1,5 +1,5 @@
-// PURPOSE: Script reads targets, print wikicode content into text files.
-// Run: $node wiki-upload-many.js
+// PURPOSE: Script reads Special:RecentChanges for main namespace and associated talkpage.
+// Run: $node wiki-monitor-recent_changes.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
 
