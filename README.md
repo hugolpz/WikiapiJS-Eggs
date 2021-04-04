@@ -25,14 +25,15 @@ cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
 This project currently provides the following scripts, already working, and ready to hack further :
 - [x] wiki-read-one.js
 - [x] wiki-read-many.js and save as files.
-- [x] wiki-edit-many.js
-- [x] wiki-move-many.js
 - [ ] wiki-read_parse-many-keep_section.js and save as files.
 - [ ] wiki-read_parse-many-keep_template_data.js and save as files.
-- [ ] wiki-delete-many.js
-- [ ] wiki-monitor-recent_changes.js
-- [ ] wiki-monitor-user_creation.js
+- [x] wiki-edit-many.js
+- [x] wiki-move-many.js
 - [x] wiki-upload-many.js
+- [ ] wiki-delete-many.js
+- [ ] wiki-protect-many.js
+- [x] wiki-monitor-recent_changes.js
+- [ ] wiki-monitor-user_creation.js
 - [ ] wikidata-read.js (page, page's property's value)
 - [ ] wikidata-modify.js
 - [ ] wikidata-modify-lexeme.js
