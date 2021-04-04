@@ -1,0 +1,23 @@
+{
+  "name": "WikiapiJS Eggs",
+  "version": "0.0.1",
+  "description": "Serie of script eggs to kickstart your mediawiki bot.",
+  "main": "wiki-edit_many.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "_"
+  },
+  "keywords": [
+    "wikibase",
+    "wikidata"
+  ],
+  "author": "hugolpz",
+  "license": "ISC",
+  "dependencies": {
+    "npm-check-updates": "^11.1.10",
+    "wikiapi": "latest"
+  }
+}
