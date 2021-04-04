@@ -15,8 +15,8 @@ var USER = logins.commons.user,
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
-    let page_data = await wiki.page('Universe', {});
-    console.log(page_data.wikitext);
+    let page_data = await wiki.page('Universe', {}); // default option is last revision = {revision: 1}
+    console.log(page_data.title+' : '+page_data.wikitext);
 /* END CORE ****************************************************** */
 /* *************************************************************** */
 
