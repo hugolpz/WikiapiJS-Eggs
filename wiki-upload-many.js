@@ -1,5 +1,5 @@
-// PURPOSE: Script to upload targets following hand-coded patters.
-// Run: $node wiki-move-many.js
+// PURPOSE: Script to upload targets using an external data file.
+// Run: $node wiki-upload-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
 const letters= require('./data/letters.js');  // <----------------- data from there

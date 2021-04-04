@@ -1,5 +1,5 @@
-
-// commons-login.js : I just loging into the target wiki.
+// PURPOSE: Script to edit targets using hand-picked targets.
+// Run: $node wiki-upload-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
 
@@ -15,8 +15,9 @@ var USER = logins.commons.user,
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
-   // Add template {stub}, replace-remove vandalism if any, add category.
-   await wiki.for_each_page(
+    var listPages = [ 'Sandbox_1', 'Sandbox_2', 'Sandbox_3'];
+    // Add template {stub}, replace-remove vandalism if any, add category.
+    await wiki.for_each_page(
         'Commons:Sandbox', 
         page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/^/g,'Thanos says: ')+`\n[[Category:${USER} test: edit]]`; }, // new content
            {bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
