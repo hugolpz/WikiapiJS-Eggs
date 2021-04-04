@@ -5,7 +5,7 @@ It will basically be a ready-to-fire, plug-and-play version of the current READM
 **WikiapiJS Eggs** is a kick starter toolkit allowing junior (JS) developers to become Bot Master on any MediaWiki. It is done by hacking provided core scripts to create, read, edit, upload, monitor your wiki, and adapting those to your needs. The project is organized around classic usecases coded into respective files. Do you have some repeatitive action in mind to maintain your wiki ? Find the script the closest to your project, explore it, and hack it to fit your needs.
 The project is based upon WikiapiJS, an elegant NodeJS modules to edit wikis through their Web API.
 
-### Install
+### Installation
 Dependencies: `git`, `nodejs`, `npm`.
 
 Setup:
@@ -16,7 +16,6 @@ npm install                     # Install core dependencies
 cp ./tpl/_logins-template.js logins.js
 cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
 ```
-
 
 ### Structures
 **Templates**
@@ -39,11 +38,11 @@ This project currently provides the following scripts, already working, and read
 **Open and explore [API documentation](https://kanasimi.github.io/wikiapi/).**
 
 ### Init
-1) On your wiki, login or create an account. Save your credential. 
+1) On your wiki, create or own an account. 
 
-2) In `./login.js` file:
+2) In `./login.js`, save the your username, password, api url. Repeat for each mediawiki & account you want to work on.
 ```javascript
-// login.js : I store your password and should never be git commited ! Add `login.js` to your .gitignore file.
+// login.js : I store your password and should never be git commited ! I should be mentioned in .gitignore .
 module.exports = {
 	// Human login, get an account via [[Special:CreateAccount]].
 	commonsH: {
@@ -51,7 +50,7 @@ module.exports = {
 		pass: 'password',
 		api : 'https://commons.wikimedia.org/w/api.php'
 	},
-	// Bot logins, get it via [[Special:BotPasswords]].
+	// Bot logins, get it via [[Special:BotPasswords]].      <-------- BEST PRACTICE !
 	commons: {
 		user: 'Username Bot@Username_Bot',     // likely something like that
 		pass: 'long-password',
@@ -80,11 +79,11 @@ var USER = logins.commons.user,
 })();
 ```
 
-3) Edit the `CORE ACTION(S)` part to do something. Ex: 
+3) You can define your target pages via several ways displayed below. 
 ```javascript
-/* EDIT MANY ************************************************ */
+/* LIST MANY ************************************************ */
 // List of hand-picked pages
-	let list = ['Wikipedia:Sandbox', 'Wikipedia:Sandbox2', 'Wikipedia:Sandbox/wikiapi' ];
+	let list = ['Wikipedia:Sandbox/1', 'Wikipedia:Sandbox/2', 'Wikipedia:Sandbox/wikiapi' ];
 // List pages in [[Category:Chemical_elements]]
 	let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles
 // List intra-wiki links in [[ABC]]
@@ -93,14 +92,24 @@ var USER = logins.commons.user,
 	let listTranscluded = await wiki.embeddedin('Template:Periodic table');
 // List of searched pages with expression in its title name
 	let listSearch = await wiki.search(' dragon');  // array of titles
-
-// Edit-many on members of target [[Category:Chemical_elements]]
-// Add template, replace-remove vandalism, add category
-	await wiki.for_each_page(
-		listMembers, 
-		page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/Covfefe/g,'')+`\n[[Category:Bot test: edit]]`; },
-		 {bot: 1, nocreate: 1, minor: 1, summary: 'Bot test: edit'}
-	);
 ```
 
-4) On Wikimedia's Wikis, go to [Commons:Bots/Requests](https://commons.wikimedia.org/wiki/Commons:Bots/Requests) or your [Wikipedia:Bots/Requests](https://en.wikipedia.org/wiki/Commons:Bots/Requests), follow instruction to get your bot approved. Ask for the temporary user-rights so you may demo your skillful usage of these user-rights. 
+4) In the boilerplate above (2), edit the `CORE ACTION(S)` part to do some action ! Example :
+```javascript
+// List members of target [[Category:Chemical_elements]]
+	let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles
+// Add template {stub}, replace-remove vandalism if any, add category.
+	await wiki.for_each_page(
+		listMembers, 
+		page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/Covfefe/g,'')+`\n[[Category:Bot test: edit]]`; }, // new content
+		 {bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
+	);
+```
+Full egg's script is visible in wiki-edit_many.js, you are encouraged to hack that file to fit your needs.
+See more on [WikiapiJS documentation](https://kanasimi.github.io/wikiapi/).
+
+4) Bot review and authorization may be needed in order to mass edit on your target wiki. On Wikimedia's Wikis, search for "Bots/Requests" (ex: [Commons](https://commons.wikimedia.org/wiki/Commons:Bots/Requests), [wp:en:](https://en.wikipedia.org/wiki/Commons:Bots/Requests)). Follow instruction as required to get your bot approved. Depending on your missions (upload, move page, delete), ask for temporary user-rights so you may demo your skillful usage of these user-rights.
+
+
+### Framework's documentation
+- [WikiapiJS documentation](https://kanasimi.github.io/wikiapi/)
