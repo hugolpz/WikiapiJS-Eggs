@@ -2,7 +2,6 @@
 // Run: $node wiki-upload-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
-const fs = require('fs');
 
 // Login credentials from .login*.js
 var USER = logins.commons.user,
