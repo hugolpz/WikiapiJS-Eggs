@@ -97,13 +97,13 @@ var USER = logins.commons.user,
 4) In the boilerplate above (2), edit the `CORE ACTION(S)` part to do some action ! Example :
 ```javascript
 // List members of target [[Category:Chemical_elements]]
-	let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles
+let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles
 // Add template {stub}, replace-remove vandalism if any, add category.
-	await wiki.for_each_page(
-		listMembers, 
-		page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/Covfefe/g,'')+`\n[[Category:Bot test: edit]]`; }, // new content
-		 {bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
-	);
+await wiki.for_each_page(
+	listMembers, 
+	page_data => { return `{{stub}}\n`+page_data.wikitext.replace(/^/g,'Thanos says: ')+`\n[[Category:Bot test: edit]]`; }, // new content
+		{bot: 1, nocreate: 0, minor: 1, summary: 'Bot test: edit'}  // edit options
+);
 ```
 Full egg's script is visible in wiki-edit_many.js, you are encouraged to hack that file to fit your needs.
 See more on [WikiapiJS documentation](https://kanasimi.github.io/wikiapi/).

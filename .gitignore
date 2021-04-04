@@ -1,5 +1,5 @@
 # DO NOT COMMIT CREDENTIALS (password) TO GITHUB
-./logins.js   
+logins.js   
 
 # Logs
 logs
