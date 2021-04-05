@@ -53,15 +53,15 @@ cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
 module.exports = {
 	// Human login, get an account via [[Special:CreateAccount]].
 	commonsH: {
-		user: 'Username Bot',
-		pass: 'password',
-		api : 'https://commons.wikimedia.org/w/api.php'
+		user_name: 'Username Bot',
+		password: 'password',
+		API_URL : 'https://commons.wikimedia.org/w/api.php'
 	},
 	// Bot logins, get it via [[Special:BotPasswords]].      <-------- BEST PRACTICE !
 	commons: {
-		user: 'Username Bot@Username_Bot',     // likely something like that
-		pass: 'long-password',
-		api : 'https://commons.wikimedia.org/w/api.php'
+		user_name: 'Username Bot@Username_Bot',     // likely something like that
+		password: 'long-password',
+		API_URL : 'https://commons.wikimedia.org/w/api.php'
 	},
 };
 ```
@@ -71,15 +71,12 @@ module.exports = {
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
 
-// Login credentials from .login*.js
-var USER = logins.commons.user,
-	PASS = logins.commons.pass,
-	API  = logins.commons.api;
-
 (async () => {
     const targetWiki = new Wikiapi;
-    await targetWiki.login(USER, PASS, API);
-    console.log(`Username ${USER} is connected !`);
+    // Login credentials from .login*.js
+    // https://kanasimi.github.io/wikiapi/Wikiapi.html#login
+    await targetWiki.login(logins.commons);
+    console.log(`Username ${logins.commons.user_name} is connected !`);
 
    // CORE ACTION(S) HERE, see the API below.
 
