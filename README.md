@@ -5,24 +5,8 @@ It will basically be a ready-to-fire, plug-and-play version of the current READM
 **WikiapiJS Eggs** is a kick starter toolkit allowing junior (JS) developers to become Bot Master on any MediaWiki. It is done by hacking provided core scripts to create, read, edit, upload, monitor your wiki, and adapting those to your needs. The project is organized around classic usecases coded into respective files. Do you have some repeatitive action in mind to maintain your wiki ? Find the script the closest to your project, explore it, and hack it to fit your needs.
 The project is based upon WikiapiJS, an elegant NodeJS modules to edit wikis through their Web API.
 
-### Installation
-Dependencies: `git`, `nodejs`, `npm`.
-
-Setup:
-```bash
-git clone {url} ./SeaDragonBot  # Create the bot folder
-cd ./SeaDragonBot               # Move into folder
-npm install                     # Install core dependencies
-cp ./tpl/_logins-template.js logins.js
-cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
-```
-
-### Structures
-**Templates**
-- [x] logins.js : _your credentials to add there._
-- [x] wiki-NEXT.js : _your next code._
-
-This project currently provides the following scripts, already working, and ready to hack further :
+### Starter Eggs
+This project provides the following basic scripts, already working, and ready to hack further into powerful beasts !
 - [x] wiki-read-one.js
 - [x] wiki-read-many.js and save as files.
 - [ ] wiki-read_parse-many-keep_section.js and save as files.
@@ -37,6 +21,25 @@ This project currently provides the following scripts, already working, and read
 - [ ] wikidata-read.js (page, page's property's value)
 - [ ] wikidata-modify.js
 - [ ] wikidata-modify-lexeme.js
+
+**Eggs' naming convention:**
+* ./{target_site}-{action}-{reach}-{details}.js
+  * `target_site` (lowercase string): wiki|commons|wp_en|wikt_ja|wikidata|pokemon_wiki|...
+  * `action` (lowercase string): read|read_parse|edit|move|upload|monitor|modify|protect|block|...
+  * `reach` (lowercase string or empty): one|many|(nothing)
+  * `details` (lowercase string): further specific details of the script's mission.
+
+### Installation
+Dependencies: `git`, `nodejs`, `npm`.
+
+Setup:
+```bash
+git clone {url} ./SeaDragonBot  # Create the bot folder
+cd ./SeaDragonBot               # Move into folder
+npm install                     # Install core dependencies
+cp ./tpl/_logins-template.js logins.js
+cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
+```
 
 ### API documentation
 **Open and explore [API documentation](https://kanasimi.github.io/wikiapi/).**
