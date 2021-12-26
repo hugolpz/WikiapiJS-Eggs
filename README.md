@@ -25,6 +25,7 @@ Install and set your credetial into `logins.js`
 - [x] wiki-edit-many.js
 - [x] wiki-move-many.js
 - [x] wiki-upload-many.js
+- [ ] wiki-download-many.js
 - [ ] wiki-delete-many.js
 - [ ] wiki-protect-many.js
 - [x] wiki-monitor-recent_changes.js
