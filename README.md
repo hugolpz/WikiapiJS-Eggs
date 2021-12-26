@@ -14,6 +14,7 @@ This project provides the following basic scripts, already working, and ready to
 - [x] wiki-edit-many.js
 - [x] wiki-move-many.js
 - [x] wiki-upload-many.js
+- [ ] wiki-download-many.js
 - [ ] wiki-delete-many.js
 - [ ] wiki-protect-many.js
 - [x] wiki-monitor-recent_changes.js
