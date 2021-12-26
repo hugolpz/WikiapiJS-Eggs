@@ -11,9 +11,9 @@ var USER = logins.commons.user,
 
 (async () => {
     // Connect
-    const targetWiki = new Wikiapi;
-    await targetWiki.login(USER, PASS, API);
-    console.log(`Username ${USER} is connected !`);
+    const wiki = new Wikiapi;
+    await wiki.login(USER, PASS, API);
+    console.log(`Username ${USER.split('@')[0]} is connected !`);
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
@@ -21,33 +21,31 @@ var USER = logins.commons.user,
     // Note: parameter `text`, filled with the right wikicode `{{description|}}`, can replace most parameters.
     let options = {
         description: 'The letter',
-        author: '[[User:user]]',
-        date: new Date() || '2021-01-01',
-        source_url: 'https://github.com/kanasimi/wikiapi',
-        permission: '{{cc-by-sa-2.5}}',
+        author: `[[User:${USER.split('@')[0]}|]]`,
+        date: new Date().toISOString().split('T')[0],
+        //source_url: 'https://github.com/kanasimi/wikiapi',
+        permission: 'own work',
         other_versions: '',
         other_fields: '',
-        license: ['{{cc-by-sa-2.5}}'],
-        categories: ['[[Category:${USER} test: upload]]'],
+        license: ['{{PD-ineligible}}'],
+        categories: [`[[Category:${USER.split('@')[0]} test: upload]]`],
         bot: 1,
-        tags:"tag1|tag2",
+       // tags:"tag1|tag2",
     };
 
     for(i=0;i<letters.length;i++){
         // Upload file from URL
         let result = await wiki.upload({
-            file_path: `./media/${letters[i]}.svg`,
-            filename: `Letter-${letters[i]}-black-on-white.svg`,  // default : keep filename
-            comment: 'Test upload with bot.',
+            file_path: `./media/${letters[i].filename}`,
+            filename: `Letter-${letters[i].letter}-colorful.svg`,  // default : keep filename
+            comment: `Upload colorful letter ${letters[i].letter} for latin alphabet.`,
             ignorewarnings: 1,  // overwrite
             ...options,
             description: `The letter ${letters[i].letter}, in black on white.`,
-            author: `${letters[i].author} the Great, Queen of Testers!`,
+            author: `[[User:${USER.split('@')[0]}|]]`,
         });
     }
 /* END CORE ****************************************************** */
 /* *************************************************************** */
 
 })();
-
-// For details, see documentation : https://kanasimi.github.io/wikiapi/

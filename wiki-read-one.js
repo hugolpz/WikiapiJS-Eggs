@@ -1,4 +1,4 @@
-// PURPOSE: Script reads targets, print wikicode content into text files.
+// PURPOSE: Reads targets 'Universe', print wikicode to the terminal.
 // Run: $node wiki-upload-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
@@ -11,7 +11,7 @@ var USER = logins.commons.user,
 (async () => {
     const targetWiki = new Wikiapi;
     await targetWiki.login(USER, PASS, API);
-    console.log(`Username ${USER} is connected !`);
+    console.log(`Username ${USER.split('@')[0]} is connected !`);
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */

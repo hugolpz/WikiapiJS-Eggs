@@ -2,11 +2,22 @@ It will basically be a ready-to-fire, plug-and-play version of the current READM
 
 ----
 
-**WikiapiJS Eggs** is a kick starter toolkit allowing junior (JS) developers to become Bot Master on any MediaWiki. It is done by hacking provided core scripts to create, read, edit, upload, monitor your wiki, and adapting those to your needs. The project is organized around classic usecases coded into respective files. Do you have some repeatitive action in mind to maintain your wiki ? Find the script the closest to your project, explore it, and hack it to fit your needs.
-The project is based upon WikiapiJS, an elegant NodeJS modules to edit wikis through their Web API.
+**WikiapiJS Eggs** is a kick starter toolkit for junior NodeJS developers willing to run a bot on a MediaWiki site. It provides the most frequent usecase demo scripts ("Eggs") to create, read, edit, upload, monitor your wiki. Follow the tutorial below to install, understand, hack and adapt those demo Eggs to your needs. The project is based upon WikiapiJS whose [clean documentation](https://kanasimi.github.io/wikiapi/) allows you to grow freely.
+
+### Installation
+Required: `git`, `nodejs`, `npm`.
+
+Setup:
+```bash
+git clone {url} ./SeaDragonBot  # Create the bot into your ./SeaDragonBot folder
+cd ./SeaDragonBot               # Move into folder
+npm install                     # Install core dependencies
+cp ./tpl/_logins-template.js logins.js
+cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
+```
 
 ### Starter Eggs
-This project provides the following basic scripts, already working, and ready to hack further into powerful beasts !
+Install and set your credetial into `logins.js`
 - [x] wiki-read-one.js
 - [x] wiki-read-many.js and save as files.
 - [ ] wiki-read_parse-many-keep_section.js and save as files.
@@ -17,7 +28,7 @@ This project provides the following basic scripts, already working, and ready to
 - [ ] wiki-delete-many.js
 - [ ] wiki-protect-many.js
 - [x] wiki-monitor-recent_changes.js
-- [ ] wiki-monitor-user_creation.js
+- [ ] wiki-monitor-user_creation.js and post welcome message.
 - [ ] wikidata-read.js (page, page's property's value)
 - [ ] wikidata-modify.js
 - [ ] wikidata-modify-lexeme.js
@@ -28,18 +39,6 @@ This project provides the following basic scripts, already working, and ready to
   * `action` (lowercase string): read|read_parse|edit|move|upload|monitor|modify|protect|block|...
   * `reach` (lowercase string or empty): one|many|(nothing)
   * `details` (lowercase string): further specific details of the script's mission.
-
-### Installation
-Dependencies: `git`, `nodejs`, `npm`.
-
-Setup:
-```bash
-git clone {url} ./SeaDragonBot  # Create the bot folder
-cd ./SeaDragonBot               # Move into folder
-npm install                     # Install core dependencies
-cp ./tpl/_logins-template.js logins.js
-cp ./tpl/_wiki-action-template.js wiki-HACK_ME.js
-```
 
 ### API documentation
 **Open and explore [API documentation](https://kanasimi.github.io/wikiapi/).**
@@ -65,11 +64,11 @@ module.exports = {
 	},
 };
 ```
-2) Create your script using this boilerplate : 
+2) Create and init your script using this boilerplate : 
 ```javascript
 // commons-login.js : I just loging into the target wiki.
 const Wikiapi= require('wikiapi');
-const logins = require('./logins.js');
+const logins = require('./logins.js');  // Important! Loads your creadentials
 
 (async () => {
     const targetWiki = new Wikiapi;
@@ -83,22 +82,22 @@ const logins = require('./logins.js');
 })();
 ```
 
-3) You can define your target pages via several ways displayed below. 
+3) You can define your target pages' array in several ways: 
 ```javascript
 /* LIST MANY ************************************************ */
 // List of hand-picked pages
-	let list = ['Wikipedia:Sandbox/1', 'Wikipedia:Sandbox/2', 'Wikipedia:Sandbox/wikiapi' ];
+	let list = ['Wikipedia:Sandbox/1', 'Wikipedia:Sandbox/2', 'Wikipedia:Sandbox/wikiapi' ];   // array of pages titles
 // List pages in [[Category:Chemical_elements]]
-	let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles
+	let listMembers = await wiki.categorymembers('Chemical elements');  // idem
 // List intra-wiki links in [[ABC]]
-	let listLinks = await wiki.redirects_here('ABC');  // array of titles
+	let listLinks = await wiki.redirects_here('ABC');  // idem
 // List of transcluded pages {{w:en:Periodic table}}
-	let listTranscluded = await wiki.embeddedin('Template:Periodic table');
+	let listTranscluded = await wiki.embeddedin('Template:Periodic table');   // idem
 // List of searched pages with expression in its title name
-	let listSearch = await wiki.search(' dragon');  // array of titles
+	let listSearch = await wiki.search(' dragon');  // idem
 ```
 
-4) In the boilerplate above (2), edit the `CORE ACTION(S)` part to do some action ! Example :
+4) In the boilerplate above (2), edit the `CORE ACTION(S)` part to do some action on the content :
 ```javascript
 // List members of target [[Category:Chemical_elements]]
 let listMembers = await wiki.categorymembers('Chemical elements');  // array of titles

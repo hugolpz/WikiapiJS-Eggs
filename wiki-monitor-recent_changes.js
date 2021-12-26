@@ -11,12 +11,12 @@ var USER = logins.commons.user,
 (async () => {
     const targetWiki = new Wikiapi;
     await targetWiki.login(USER, PASS, API);
-    console.log(`Username ${USER} is connected !`);
+    console.log(`Username ${USER.split('@')[0]} is connected !`);
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
 // Listen to new edits, check every 2 minutes
-    wiki.listen(function for_each_row() { ... }, {
+    targetWiki.listen(function for_each_row() { ... }, {
         delay: '2m',
         filter: function filter_row() { ... },
         // get diff
@@ -27,5 +27,3 @@ var USER = logins.commons.user,
 /* *************************************************************** */
 
 })();
-
-// For details, see documentation : https://kanasimi.github.io/wikiapi/

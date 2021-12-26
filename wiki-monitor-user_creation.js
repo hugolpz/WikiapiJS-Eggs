@@ -1,4 +1,4 @@
-// PURPOSE: Monitor to identify new users.
+// PURPOSE: Monitor to identify new users and post welcome message on user's talkpage.
 // Run: $node {filename}.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
@@ -12,7 +12,7 @@ var USER = logins.commons.user,
     // Connect
     const wiki = new Wikiapi;
     await wiki.login(USER, PASS, API);
-    console.log(`Username ${USER} is connected !`);
+    console.log(`Username ${USER.split('@')[0]} is connected !`);
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
@@ -31,5 +31,3 @@ var USER = logins.commons.user,
 /* END CORE ****************************************************** */
 /* *************************************************************** */
 })();
-
-// For details, see documentation : https://kanasimi.github.io/wikiapi/

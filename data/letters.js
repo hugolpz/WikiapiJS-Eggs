@@ -1,4 +1,5 @@
 module.exports = [
+    // Data relevant to media files in ../media/
     { letter: 'a', filename: 'a-letter-test.svg', author: 'Beyoncey' },
     { letter: 'b', filename: 'b-letter-test.svg', author: 'Beyoncey' },
     { letter: 'c', filename: 'c-letter-test.svg', author: 'Shakiroar' },
