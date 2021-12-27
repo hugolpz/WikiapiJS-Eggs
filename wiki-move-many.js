@@ -1,4 +1,4 @@
-// PURPOSE: Script renames targets following hand-coded patterns.
+// PURPOSE: Moves-renames targets following hand-coded patterns.
 // Run: $node wiki-move-many.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
@@ -17,7 +17,7 @@ var USER = logins.commons.user,
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
     // List of targets
-    const list = await targetWiki.categorymembers(`${USER} test: edit`);
+    const list = await targetWiki.categorymembers(`${USER.split('@')[0]} test: edit`);
 
     // Loop on targets
     for(i=0;i<list.length;i++){// Set pages titles (current and new), reason and revertReason :

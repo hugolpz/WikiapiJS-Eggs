@@ -2,7 +2,7 @@ It will basically be a ready-to-fire, plug-and-play version of the current READM
 
 ----
 
-**WikiapiJS Eggs** is a kick starter toolkit for junior NodeJS developers willing to run a bot on a MediaWiki site. It provides the most frequent usecase demo scripts ("Eggs") to create, read, edit, upload, monitor your wiki. Follow the tutorial below to install, understand, hack and adapt those demo Eggs to your needs. The project is based upon WikiapiJS whose [clean documentation](https://kanasimi.github.io/wikiapi/) allows you to grow freely.
+**WikiapiJS Eggs** is a ready-to-fire MediaWiki bot toolkit for junior NodeJS developers. It provides the most frequent usecases as demo scripts ("Eggs") to create, read, edit, upload, monitor your wiki. Follow the tutorial below to install, understand, hack and adapt those demo Eggs to your needs. The project is based upon WikiapiJS whose [clean documentation](https://kanasimi.github.io/wikiapi/) allows you to grow freely.
 
 ### Installation
 Required: `git`, `nodejs`, `npm`.

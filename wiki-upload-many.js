@@ -34,16 +34,19 @@ var USER = logins.commons.user,
     };
 
     for(i=0;i<letters.length;i++){
+        console.log(letters[i].filename)
         // Upload file from URL
-        let result = await wiki.upload({
-            file_path: `./media/${letters[i].filename}`,
-            filename: `Letter-${letters[i].letter}-colorful.svg`,  // default : keep filename
-            comment: `Upload colorful letter ${letters[i].letter} for latin alphabet.`,
-            ignorewarnings: 1,  // overwrite
-            ...options,
-            description: `The letter ${letters[i].letter}, in black on white.`,
-            author: `[[User:${USER.split('@')[0]}|]]`,
-        });
+        try{
+            wiki.upload({
+                file_path: `./media/${letters[i].filename}`,
+                filename: `Letter-${letters[i].letter}-colorsB.svg`,  // default : keep filename
+                comment: `Upload colorful letter ${letters[i].letter} for latin alphabet.`,
+                ignorewarnings: 1,  // overwrite
+                ...options,
+                description: `The letter ${letters[i].letter}, in black on white.`,
+                author: `[[User:${USER.split('@')[0]}|]]`,
+            });
+        }catch(e){ console.error('Fails upload: '+ e); }
     }
 /* END CORE ****************************************************** */
 /* *************************************************************** */
