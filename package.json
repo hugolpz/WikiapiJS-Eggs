@@ -17,7 +17,8 @@
   "author": "hugolpz",
   "license": "ISC",
   "dependencies": {
+    "cejs": "github:kanasimi/cejs",
     "npm-check-updates": "^11.1.10",
-    "wikiapi": "github:kanasimi/wikiapi"
+    "wikiapi":  "github:kanasimi/wikiapi"
   }
 }
