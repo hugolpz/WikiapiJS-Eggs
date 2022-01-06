@@ -15,7 +15,7 @@ var USER = logins.commons.user,
     // Connect
     var targetwiki = new Wikiapi;
     await targetwiki.login(USER, PASS, API);
-    console.log(`Usernhttps://discord.com/channels/537685109718122506/676120754374311953/926132618347577445ame ${USER.split('@')[0]} is connected !`);
+    console.log(`Username ${USER.split('@')[0]} is connected !`);
 
 /* *************************************************************** */
 /* CORE ACTION(S) HERE : HACK ME ! ******************************* */
@@ -24,7 +24,7 @@ var USER = logins.commons.user,
         masterCategory = 'Lingua_Libre_pronunciation', // 'Lingua_Libre_pronunciation-orther'
         spliter = function(str){ return str.indexOf('pronunciation by ')>=0?'pronunciation by ':'-';},
         filterCategoriesStr = 'cmn', // Category name must contain. `false` if not required.
-        filterFilesStr = 'Assassas'; // File name must contain. `false` if not required.
+        filterFilesStr = 'Luilui'; // File name must contain. `false` if not required.
         if (!fs.existsSync(directory)){ fs.mkdirSync(directory); }
     // List of categories
     var categories = (await targetwiki.category_tree(masterCategory, { depth: 1, cmtype: 'subcat', get_flated_subcategories: true })).flated_subcategories;
@@ -41,6 +41,8 @@ var USER = logins.commons.user,
         if (!fs.existsSync(directory+subDir)){ fs.mkdirSync(directory+subDir); }
         // List of targets files
         var files = await targetwiki.categorymembers(category, { namespace: 'File' });
+        
+        console.log(files[0], files[1], files[2])
         // Filter files, if defined
         files = filterFilesStr? files.filter(item => item.title.indexOf(filterFilesStr)!== -1): files;
         console.log(JSON.stringify(files));
