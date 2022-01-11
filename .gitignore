@@ -7,3 +7,9 @@ logs
 
 # Dependency directories
 node_modules/
+
+# Others
+CeJS-master/
+package-lock.json
+tmp/
+tpl/
