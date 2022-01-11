@@ -1,5 +1,4 @@
-// SCOPE: Lingualibre
-// PURPOSE: Given a root category, script list subcategories and download all files from them into dedicated repositories.
+// PURPOSE: Given a root category of media files: list subcategories, recreate tree structure and download all files.
 // Run: $node script.js
 // Note: see settings section.
 const Wikiapi= require('wikiapi');

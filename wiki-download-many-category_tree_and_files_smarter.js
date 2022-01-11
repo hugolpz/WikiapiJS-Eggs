@@ -1,7 +1,7 @@
 // SCOPE: Lingualibre
 // PURPOSE: Given a root category, script list subcategories and download all files from them into dedicated repositories.
+// Filter parameters exists, so only parts of the tree may be downloaded if wanted. See section "Settings".
 // Run: $node script.js
-// Note: see settings section.
 const fs = require('fs');
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');

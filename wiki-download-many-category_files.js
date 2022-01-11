@@ -1,5 +1,5 @@
-// PURPOSE: Script to upload targets using an external data file.
-// Run: $node wiki-upload-many.js
+// PURPOSE: Script to download list of targets files, here those within one category.
+// Run: $node script.js
 const Wikiapi= require('wikiapi');
 const logins = require('./logins.js');
 
