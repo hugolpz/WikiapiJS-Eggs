@@ -89,7 +89,7 @@ const logins = require('./logins.js');  // Important! Loads your creadentials
 // List of hand-picked pages
 	let list = ['Wikipedia:Sandbox/1', 'Wikipedia:Sandbox/2', 'Wikipedia:Sandbox/wikiapi' ];   // array of pages titles
 // List pages generated from .js file
-	const data   = require('./data/letters.js');  // [{'letter': 'a'}, {'letter':'b'}]
+	const data   = require('./data/letters.js');  // module.exports = [{'letter': 'a'}, {'letter':'b'}]
 	let listPages = data.map(item => `File:Letter-${item.letter}-colorful.svg`);
 // List pages in [[Category:Chemical_elements]]
 	let listMembers = await wiki.categorymembers('Chemical elements');  // idem
