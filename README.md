@@ -1,4 +1,4 @@
-It will basically be a ready-to-fire, plug-and-play version of the current README.md. Git clone, npm install, enter your password, fire the bot. With best practice in mind. Aim is to make onbording super easy, with rapid ROI. Later will come the hacking, customizations, API documentation reading and interaction with kanasimi/wikiapi project for features requests, PR, etc.
+It will basically be a ready-to-fire, plug-and-play version of the current README.md. Git clone, npm install, enter your password, fire the bot. With best practice in mind. Aim is to make onboarding super easy, with rapid ROI. Later will come the hacking, customizations, API documentation reading and interaction with kanasimi/wikiapi project for features requests, PR, etc.
 
 ----
 
